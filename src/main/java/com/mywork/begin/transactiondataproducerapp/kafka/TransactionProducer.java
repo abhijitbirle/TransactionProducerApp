@@ -1,7 +1,7 @@
 package com.mywork.begin.transactiondataproducerapp.kafka;
 
 import com.mywork.begin.transactiondataproducerapp.config.ApplicationProperties;
-import com.mywork.begin.transactiondataproducerapp.model.Transaction;
+import com.mywork.begin.transactiondataproducerapp.model.TransactionEvent;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -15,7 +15,7 @@ import org.springframework.util.concurrent.ListenableFutureCallback;
 public class TransactionProducer {
 
     @Autowired
-    private KafkaTemplate<String, Transaction> kafkaTemplate;
+    private KafkaTemplate<String, TransactionEvent> kafkaTemplate;
 
     @Autowired
     private ApplicationProperties applicationProperties;
@@ -28,16 +28,16 @@ public class TransactionProducer {
      * Kafka is a fast stream processing platform. So it's a better idea to handle the results asynchronously so that
      * the subsequent messages do not wait for the result of the previous message. We can do this through a callback
      *
-     * @param transaction
+     * @param TransactionEvent
      */
-    public void sendToKafkaTopic(Transaction transaction) {
-        ListenableFuture<SendResult<String, Transaction>> future =
-                kafkaTemplate.send(applicationProperties.getKafkaTopics().get(0), transaction);
+    public void sendToKafkaTopic(TransactionEvent TransactionEvent) {
+        ListenableFuture<SendResult<String, TransactionEvent>> future =
+                kafkaTemplate.send(applicationProperties.getKafkaTopics().get(0), TransactionEvent);
 
-        future.addCallback(new ListenableFutureCallback<SendResult<String, Transaction>>() {
+        future.addCallback(new ListenableFutureCallback<SendResult<String, TransactionEvent>>() {
 
             @Override
-            public void onSuccess(SendResult<String, Transaction> result) {
+            public void onSuccess(SendResult<String, TransactionEvent> result) {
              log.error("Sent message= with offset=[" + result.getRecordMetadata().offset() + "]");
             }
 

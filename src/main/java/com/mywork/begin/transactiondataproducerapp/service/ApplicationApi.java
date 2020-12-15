@@ -2,7 +2,7 @@ package com.mywork.begin.transactiondataproducerapp.service;
 
 import com.mywork.begin.transactiondataproducerapp.config.ApplicationProperties;
 import com.mywork.begin.transactiondataproducerapp.kafka.TransactionProducer;
-import com.mywork.begin.transactiondataproducerapp.model.Transaction;
+import com.mywork.begin.transactiondataproducerapp.model.TransactionEvent;
 import com.mywork.begin.transactiondataproducerapp.repository.RepositoryImpl.MongoDbRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class ApplicationApi {
     private TransactionProducer transactionProducer;
 
     @PostMapping("postTransaction")
-    public String postTransaction(@RequestBody Transaction transaction) {
+    public String postTransaction(@RequestBody TransactionEvent transaction) {
         mongoDbRepository.addTransaction(transaction);
         transactionProducer.sendToKafkaTopic(transaction);
         return "Transaction is inserted";

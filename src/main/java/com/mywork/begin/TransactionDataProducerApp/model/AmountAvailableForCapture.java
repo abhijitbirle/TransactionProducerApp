@@ -1,4 +1,4 @@
-package com.mywork.begin.TransactionDataProducerApp.model;
+package com.mywork.begin.transactiondataproducerapp.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

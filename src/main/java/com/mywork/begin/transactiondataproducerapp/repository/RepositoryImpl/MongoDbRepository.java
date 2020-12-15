@@ -1,6 +1,6 @@
 package com.mywork.begin.transactiondataproducerapp.repository.RepositoryImpl;
 
-import com.mywork.begin.transactiondataproducerapp.model.Transaction;
+import com.mywork.begin.transactiondataproducerapp.model.TransactionEvent;
 import com.mywork.begin.transactiondataproducerapp.repository.IMongoDbRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -19,12 +19,12 @@ public class MongoDbRepository implements IMongoDbRepository {
     private MongoTemplate mongoTemplate;
 
     @Override
-    public List<Transaction> getAllTransaction() {
-        return mongoTemplate.findAll(Transaction.class);
+    public List<TransactionEvent> getAllTransaction() {
+        return mongoTemplate.findAll(TransactionEvent.class);
     }
 
     @Override
-    public void addTransaction(Transaction transaction) {
+    public void addTransaction(TransactionEvent transaction) {
         mongoTemplate.insert(transaction);
     }
 }

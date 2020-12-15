@@ -1,12 +1,12 @@
 package com.mywork.begin.transactiondataproducerapp.repository;
 
-import com.mywork.begin.transactiondataproducerapp.model.Transaction;
+import com.mywork.begin.transactiondataproducerapp.model.TransactionEvent;
 
 import java.util.List;
 
 public interface IMongoDbRepository {
 
-    List<Transaction> getAllTransaction();
+    List<TransactionEvent> getAllTransaction();
 
-    void addTransaction(Transaction transaction);
+    void addTransaction(TransactionEvent transaction);
 }
