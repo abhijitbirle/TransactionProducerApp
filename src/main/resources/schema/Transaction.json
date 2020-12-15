@@ -1,0 +1,230 @@
+{
+  "header": {
+    "eventType": "AUTHORISATION",
+    "state": "SETTLED",
+    "repeatCount": 0,
+    "source": {
+      "sourceId": "GPP",
+      "userId": "b15730f5-4d50-4172-be2c-4a5fb54afca7",
+      "pim": "CREDIT_MUTUEL"
+    },
+    "tags": []
+  },
+  "transaction": {
+    "UUID": "bf70ce47-286d-4f99-840f-2fdfad5731fa",
+    "transactionId": "bf70ce47-286d-4f99-840f-2fdfad5731fa",
+    "referenceId": "PreprocDevTest-5",
+    "initiatorTraceId": "004884",
+    "gatewayTraceId": "bf70ce47-286d-4f99-840f-2fdfad5731fa",
+    "transactionType": "SALE",
+    "additionalServices": [],
+    "amount": {
+      "currencyCode": "USD",
+      "value": 5200
+    },
+    "createdDateTime": "2020-11-09T12:52:07.501Z",
+    "capturedDateTime": "2020-11-09T12:52:07.501Z",
+    "transmittedDateTime": "2020-11-09T17:20:00.707Z",
+    "settlementContext": {
+      "UUID": "48fa36a2-cc28-4a52-944c-2638d3f95780",
+      "settledId": "2",
+      "settlementBatchFileNumber": "2",
+      "status": "SETTLED",
+      "settledDate": "2020-11-09T12:52:39.903Z"
+    },
+    "capture": true,
+    "instrument": [{
+      "expiryMonth": 1,
+      "expiryYear": 2021,
+      "trackData": [],
+      "maskedCardNumber": "507100*****3120",
+      "cardBrand": "MAESTRO",
+      "fundingSource": "DEBIT",
+      "country": "FRA",
+      "cardVerificationType": "NOCSC",
+      "instrumentType": "CARD"
+    }, {
+      "cardholderToken": "3053743557660545",
+      "lossPreventionToken": "0824981358610469",
+      "tokenEntityId": "E1121",
+      "tokenExpiryDate": "2020-12-03T00:00:00.000Z",
+      "instrumentType": "TOKEN"
+    }],
+    "customer": {
+      "phoneNumbers": [],
+      "shipping": {
+        "receiptEmail": "abhijitB2121@VERIFONE.com",
+        "email": "abhijitB2121@VERIFONE.com",
+        "recipientName": "John",
+        "firstName": "John",
+        "lastName": "Doe",
+        "phoneNumber": {
+          "value": "31639766925",
+          "isPrimary": false,
+          "phoneType": "HOME"
+        },
+        "address": {
+          "addressLine1": "Stree 250",
+          "city": "Amsterdam",
+          "postCode": "1012 EA",
+          "country": "NL"
+        }
+      },
+      "authentication": {
+        "threeDSecure": {
+          "authenticationStatus": "Y",
+          "authenticationType": "CAVV",
+          "authenticationValue": "Y2FyZGluYWxjb21tZXJjZWF1dGg=",
+          "authenticationValueAlgorithm": "1",
+          "enrollmentStatus": "Y",
+          "signatureVerification": "Y",
+          "eci": "05",
+          "verification": [],
+          "version": "1.0.2",
+          "errorNo": "0",
+          "additionalData": {
+            "totalItems": 6.0,
+            "deviceChannel": "BROWSER",
+            "challengeIndicator": "01",
+            "acsUrl": "https://0merchantacsstag.cardinalcommerce.com/MerchantACSWeb/creq.jsp",
+            "acsOperatorID": "MerchantACS"
+          }
+        }
+      }
+    },
+    "merchant": {
+      "UUID": "1a23fb10-83d9-447f-b083-c0f872811289",
+      "id": "4342280",
+      "name": "Demo Test",
+      "locale": {
+        "countryCode": "FR",
+        "language": "en-US",
+        "timezone": "IST"
+      },
+      "sites": [{
+        "name": "Demo Test",
+        "phoneNumbers": [],
+        "contacts": []
+      }],
+      "contracts": [{
+        "contractId": "dd263049-c1f8-4f18-b961-d63a08d15499",
+        "merchantId": "4342280",
+        "otherParty": {
+          "role": "ACQUIRER",
+          "acquiringInstitution": 12345612345
+        },
+        "paymentType": []
+      }],
+      "contacts": [],
+      "businessIdentifiers": []
+    },
+    "POI": {
+      "type": "VIRTUAL",
+      "contract": {
+        "poiId": "peace"
+      },
+      "software": [],
+      "verificationCapabilities": []
+    },
+    "context": {
+      "paymentContext": {
+        "cardPresent": false,
+        "cardholderPresent": false,
+        "salesChannel": "ECOMMERCE",
+        "brandChoice": "MERCHANT",
+        "merchantPresent": "UNATTENDED",
+        "authenticationMethod": ["SECURE_ELECTRONIC_COMMERCE"],
+        "entryMode": "MANUAL",
+        "authentication": ["SECURE_ELECTRONIC_COMMERCE"],
+        "onlineReason": "TERMINAL",
+        "accountType": "DEBIT",
+        "channel": "ECOM",
+        "fallbackReason": "NO_FALLBACK"
+      },
+      "salesContext": {
+        "salesIdentifier": "SNEAKERS DELUXE"
+      }
+    },
+    "outcome": [{
+      "acquirerResponseCode": "00",
+      "acquirerResponseMessage": "Approved",
+      "processorSTAN": "004884",
+      "outcomeType": "ACQ_RESULT",
+      "metadata": {
+        "transmissionDateTime": "2020-11-09T16:20:02.054Z",
+        "applicationLocalDate": "1109",
+        "registrationVerification3ds": "0040",
+        "acquirerResponseCode": "00",
+        "applicationLocalTime": "172000",
+        "cumulativeAmount": "10660",
+        "fundingSource": "DEBIT"
+      }
+    }, {
+      "authorisationOnline": true,
+      "authorisationCode": "808353",
+      "response": "SUCCESS",
+      "responseCode": "0000",
+      "responseMessage": "Approved",
+      "errorCode": "00",
+      "errorMessage": "Transaction approved or successfully completed",
+      "transactionTraceId": "004884",
+      "outcomeType": "TRAN_RESULT",
+      "actions": []
+    }],
+    "paymentSummary": {
+      "state": "SETTLED",
+      "displayStateHumanReadable": "SALE SETTLED",
+      "displayTransactionState": "SETTLED",
+      "displayTransactionType": "SALE",
+      "displayPartial": false,
+      "authState": "AUTHORISED",
+      "totalAuthorisedAmount": {
+        "currencyCode": "USD",
+        "value": 5200
+      },
+      "currentAmount": {
+        "currencyCode": "USD",
+        "value": 5200
+      },
+      "amountAvailableForCapture": {
+        "currencyCode": "USD",
+        "value": 0
+      },
+      "captureAmountModifier": 0,
+      "amountAvailableForRefund": {
+        "currencyCode": "USD",
+        "value": 5200
+      },
+      "eventLog": [{
+        "uuid": "bf70ce47-286d-4f99-840f-2fdfad5731fa",
+        "stateHumanReadable": "SALE AUTHORISED",
+        "transactionState": "AUTHORISED",
+        "transactionType": "SALE",
+        "transactionPartial": false,
+        "amount": {
+          "currencyCode": "USD",
+          "value": 5200
+        },
+        "userId": "b15730f5-4d50-4172-be2c-4a5fb54afca7",
+        "datetime": "2020-11-09T12:52:07.501Z",
+        "eventTreeUUIDs": ["bf70ce47-286d-4f99-840f-2fdfad5731fa"]
+      }, {
+        "uuid": "bf70ce47-286d-4f99-840f-2fdfad5731fa",
+        "stateHumanReadable": "SALE SETTLED",
+        "transactionState": "SETTLED",
+        "transactionType": "SALE",
+        "transactionPartial": false,
+        "amount": {
+          "currencyCode": "USD",
+          "value": 5200
+        },
+        "userId": "b15730f5-4d50-4172-be2c-4a5fb54afca7",
+        "datetime": "2020-11-09T12:52:07.501Z",
+        "eventTreeUUIDs": ["bf70ce47-286d-4f99-840f-2fdfad5731fa"]
+      }],
+      "allowedOperations": [],
+      "expiry": "2020-11-09T12:52:07.501Z"
+    }
+  },
+  "id": "5fa93b7b421eeb6735c25b4a"
+}
