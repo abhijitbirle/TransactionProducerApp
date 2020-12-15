@@ -1,0 +1,50 @@
+package com.mywork.begin.transactiondataproducerapp.kafka;
+
+import com.mywork.begin.transactiondataproducerapp.config.ApplicationProperties;
+import com.mywork.begin.transactiondataproducerapp.model.Transaction;
+import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.SendResult;
+import org.springframework.stereotype.Component;
+import org.springframework.util.concurrent.ListenableFuture;
+import org.springframework.util.concurrent.ListenableFutureCallback;
+
+@Log4j2
+@Component
+public class TransactionProducer {
+
+    @Autowired
+    private KafkaTemplate<String, Transaction> kafkaTemplate;
+
+    @Autowired
+    private ApplicationProperties applicationProperties;
+
+    /**
+     * The send API returns a ListenableFuture object. If we want to block the sending thread and get the result about
+     * the sent message, we can call the get API of the ListenableFuture object. The thread will wait for the result,
+     * but it will slow down the producer.
+     * <p>
+     * Kafka is a fast stream processing platform. So it's a better idea to handle the results asynchronously so that
+     * the subsequent messages do not wait for the result of the previous message. We can do this through a callback
+     *
+     * @param transaction
+     */
+    public void sendToKafkaTopic(Transaction transaction) {
+        ListenableFuture<SendResult<String, Transaction>> future =
+                kafkaTemplate.send(applicationProperties.getKafkaTopics().get(0), transaction);
+
+        future.addCallback(new ListenableFutureCallback<SendResult<String, Transaction>>() {
+
+            @Override
+            public void onSuccess(SendResult<String, Transaction> result) {
+             log.error("Sent message= with offset=[" + result.getRecordMetadata().offset() + "]");
+            }
+
+            @Override
+            public void onFailure(Throwable ex) {
+                log.error("Unable to send message= due to : " + ex.getMessage());
+            }
+        });
+    }
+}

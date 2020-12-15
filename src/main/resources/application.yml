@@ -1,0 +1,24 @@
+# Application port
+server:
+  port: 8080
+  context-path: /user
+
+  #Local MongoDB config
+spring:
+  application:
+    name: Transaction-Producer-Application
+  data:
+    mongodb:
+        database: transactionDb
+        port: 27017
+        host: 172.28.224.231
+
+# Kafka Config
+kafka:
+  clientId: first-app
+  servers: 172.30.83.101
+  port: 9092
+  ack: all
+  KafkaTopics:
+    topic-1: first-transaction-topic
+    topic-2: second-transaction-topic

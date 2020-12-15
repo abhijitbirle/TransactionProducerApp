@@ -1,6 +1,5 @@
-package com.mywork.begin.TransactionDataProducerApp;
+package com.mywork.begin.transactiondataproducerapp;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -8,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class TransactionDataProducerApplication {
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(TransactionDataProducerApplication.class, args);
 	}
 
